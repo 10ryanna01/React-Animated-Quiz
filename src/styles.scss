@@ -1,0 +1,280 @@
+ 
+ 
+ 
+@use "./styles/animation";
+@use "./styles/typography";
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+  text-align: center;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+
+ 
+
+html,
+body {
+  background: transparent;
+}
+
+button:disabled {
+  opacity: 0.2;
+}
+
+//  *{
+//   border: 1px solid #EE2E31;
+
+// transition: transform .35s ease, color .35s ease;
+// https://codepen.io/rpg2019/pen/xxWpEeY
+// &:hover {
+//   color: goldenrod;
+//   transform: scale(1.15);
+// }
+
+//  }
+
+// theme
+$theme--option--A: #42047e;
+$theme--option--A-bg: rgba(66, 4, 126, 0.3);
+$theme--option--B: #1d7874;
+$theme--option--C: #f4c095;
+$theme--option--D: #ee2e31;
+$theme--option--D-bg: rgba(238, 46, 49, 0.7);
+$theme--option--E: #07f49e;
+
+// enforce theme font
+body, div *{
+  font-family: 'Nunito', sans-serif!important;
+}
+
+.UI__utilities {
+
+  &__copy__h1 {
+    font-size: 3rem;
+    line-height: 1;
+
+    text-transform: capitalize;
+  }
+  &__copy__h2 {
+    font-size: 1.5rem;
+    line-height: 1;
+    color: $theme--option--C;
+  }
+
+  &__copy__h6{
+    font-size: 0.5rem; font-weight: 100; line-height: 1;
+  }
+}
+
+.UI__Quiz {
+  padding-bottom: 5rem;
+  // quick fix to push font to all items
+
+  font-weight: 300;
+  letter-spacing: 2px;
+  @extend .animate__animated;
+  @extend .animate__fadeIn;
+  position: relative;
+  display: flex;
+  flex-flow: column;
+  background: linear-gradient(to bottom right, #42047e, #07f49e);
+
+  &__header__title {
+    @extend .UI__utilities__copy__h1;
+  }
+  &__header__subtitle {
+    @extend .UI__utilities__copy__h2;
+  }
+
+  &__questions-c {
+  
+    gap: 1rem;
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    align-items: center;
+    justify-content: center;
+    transition: ease-in-out;
+    @media ((max-width: 1500px)) {
+      grid-template-columns: repeat(2, auto);
+    }
+
+    @media ((max-width: 790px)) {
+      grid-template-columns: repeat(1, auto);
+    }
+
+    @media ((max-width: 420px)) {
+      grid-template-columns: repeat(1, auto);
+      transform: scale(0.95); 
+    }
+
+    &__title{
+      @extend .UI__utilities__copy__h2;
+      color: $theme--option--E;
+      font-weight: 100;
+      background: $theme--option--D-bg;
+      text-shadow: 2px 2px 2px #1a1a1a; 
+        padding: 1rem;
+      @media ((max-width: 420px)) {
+        margin-bottom: 0;
+      }
+    }
+
+    
+  }
+  .UI__Quiz__answer-block-c{
+    position: relative;
+    display: block;
+    top:50%;
+    left: 50%;
+    transform-origin: center;
+    transform: translate(-50%, -50%);
+ 
+    transition: none;
+    position: fixed; 
+  }
+  &__answer-block {
+   
+ 
+    display: block;
+    flex-flow: column;  
+    width: 360px; 
+    background: $theme--option--A-bg;
+    border: 2px solid $theme--option--A;
+    box-shadow: 0px 0px 100px rgba(0,0,0, 1);
+     &__content{
+      display: flex;
+      flex-flow: column;
+
+      &__img{ 
+        border-radius:  0;
+        width: 100%;
+        display: block;
+        max-height: 360px;
+        margin-bottom: 2rem;
+      }
+      &__title{
+        @extend .UI__utilities__copy__h1;
+        color: $theme--option--C;
+        text-shadow: 2px 2px 2px #1a1a1a; 
+        
+      }
+      &__cta{ 
+        position: relative; 
+        background: $theme--option--B;
+        color: $theme--option--E; 
+        @extend .UI__utilities__copy__h2;
+        text-transform: capitalize;
+        cursor: pointer;
+        padding: 1rem;   
+     
+        border: 0;
+        outline: 0;
+        text-shadow: 2px 2px 2px #1a1a1a; 
+      }
+    }
+
+  }
+
+  &__question-c{
+ 
+    position: relative;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    border-radius: 8px;
+    border: 1px solid white; 
+    font-size: 1em;
+    font-weight: 500; 
+    padding: 0; 
+    background: transparent;
+    cursor: pointer;
+    transition: border-color 0.25s;
+
+   
+    min-height: 175px;
+    background: linear-gradient(
+      135deg,
+      var(--paper-dark),
+      30%,
+      var(--paper-color)
+    );
+    transition: box-shadow .5s ease;
+    box-shadow: 3px 3px 2px var(--paper-shadow); 
+    
+
+    &:hover:before{
+      transform: translate(0px);
+      transition: transform .5s ease;      
+    }
+
+    &:hover{
+      box-shadow: 0px 0px 30px rgba(0,0,0,.7);
+      transition: box-shadow .5s ease;
+    } 
+    
+    
+
+    &__title{ color: white; @extend .UI__utilities__copy__h1;
+      margin-top:0.5rem;
+      margin-bottom: 0.5rem;
+    }
+   
+    &__img{
+      border-radius: 0.5rem 0.5rem 0 0 ; 
+    }
+    &__details{
+      padding: 1rem;
+    position: relative;
+    display: flex;
+    align-self: center;
+
+    &--credit{
+      padding: 0;
+      display: flex;
+      flex-flow: column;
+      align-self: self-end;
+    }
+    
+      &__link{
+        position: relative; 
+        background: $theme--option--A-bg;
+        color: $theme--option--E; 
+        @extend .UI__utilities__copy__h6;
+        padding: 0.5rem;   
+        
+  }
+
+      &__link--alt{
+        position: relative;
+        text-shadow: 2px 2px 2px #1a1a1a; 
+        
+        background-color: $theme--option--A-bg;
+        color: $theme--option--E; 
+        padding: 0.5rem;      
+        @extend .UI__utilities__copy__h6;
+      }
+    }
+ 
+
+  }
+
+ 
+
+  
+   
+}
