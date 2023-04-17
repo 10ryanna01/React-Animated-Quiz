@@ -7,7 +7,7 @@ inspired by a buzz feed quiz with mock data. built with local and cloud data opt
 ###  use 'npm install'  or  'yarn install'
 
 # Run it 🦄🚀
-###  yarn Dev
+###  "yarn dev" or "npm run start"
 
 ## optional run middlewear seperatley on 'npm start:backend' but make sure to update data location in App.tsx 
 
