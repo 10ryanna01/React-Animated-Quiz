@@ -30,7 +30,7 @@ const App = () => {
 
   const fetchData = async () => {
     try {
-      const response = await fetch("../sample-data.json");
+      const response = await fetch("/sample-data.json");
       // toggle cloud version @ http://localhost:8000/
       
       const json = await response.json();
