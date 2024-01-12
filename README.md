@@ -1,4 +1,5 @@
 # React-Animated-Quiz 🥳
+## [live link hosted on vercel](https://react-animated-quiz.vercel.app/)  🎉
 inspired by a buzz feed quiz with mock data. built with local and cloud data options
 
 # Built and bootstraped in Vite using Typescript 🔬
